@@ -1,6 +1,6 @@
 {
   "name": "chainsorter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sort a list based on properties of its elements or by any arbitrary functions you define.  Chain them together if you like.",
   "main": "chainsorter.js",
   "scripts": {
