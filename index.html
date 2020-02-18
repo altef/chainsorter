@@ -6,10 +6,16 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="style.css" />
-		<script src="./chainsorter.js"></script>
-		<script>
-		
-		
+		<script src="https://embed.runkit.com" data-element-id="runkit-preamble"></script>
+	</head>
+	<body>
+	
+	<h1>ChainSorter Demo</h1>
+	<div class="section">
+	<h2>Preamble</h2>
+	<p>The following code is included in the subsequent examples, but hidden so as not to pollute them.</p>
+		<div id="runkit-preamble">
+const {ChainSorter} = require("chainsorter");
 const names = [{
 		"first": "John",
 		"last": "Doe",
@@ -30,19 +36,50 @@ const names = [{
 		"last": "Doe",
 		"id": 3
 	}];
-
-
-console.log(ChainSorter(names).desc('first').sort());
-console.log(ChainSorter(names).asc('last', 'first').sort());
-console.log(ChainSorter(names).asc(...['first', 'last']).sort());
-		// NPM IT
-		</script>
-	</head>
-	<body>
-	
-	<h1>ChainSorter Demo</h1>
-	<div class="section">
-	
+		</div>
 	</div>
+	
+	<div class="section">
+	<h2>Ascending, by last name and then first name.</h2>
+	<div id="runkit-1"></div>
+	</div>
+
+
+	<div class="section">
+	<h2>Descending by last name, ascending by first name.</h2>
+	<div id="runkit-2"></div>
+	</div>
+
+
+	<div class="section">
+	<h2>A custom function &ndash; show <em>John</em>s first.</h2>
+	<div id="runkit-3"></div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<script>
+		var preamblecode = 'const {ChainSorter} = require("chainsorter");\n';
+		preamblecode += 'const names = [{"first":"John","last":"Doe","id":0},{"first":"Jane","last":"Smith","id":1},{"first":"John","last":"Rabble","id":2},{"first":"Jack","last":"Doe","id":3}];\n';
+
+		var notebook1 = RunKit.createNotebook({
+			element: document.getElementById("runkit-1"),
+			'preamble': preamblecode,
+			source: "ChainSorter(names).asc('last', 'first').sort();\n\n// Or, any of the following are equivalent:\n// ChainSorter(names).asc('last').asc('first').sort();\n// ChainSorter(names).asc(...['last', 'first']).sort();\n"
+		})
+
+		var notebook2 = RunKit.createNotebook({
+			element: document.getElementById("runkit-2"),
+			'preamble': preamblecode,
+			source: "ChainSorter(names).desc('last').asc('first').sort();"
+		})
+		
+		var notebook3 = RunKit.createNotebook({
+			element: document.getElementById("runkit-3"),
+			'preamble': preamblecode,
+			source: "ChainSorter(names).custom((a,b)=>{\n    const searched = 'John';\n    if (a.first == searched && b.first != searched)\n        return -1;\n    if (a.first != searched && b.first == searched)\n        return 1;\n    return 0;\n}).sort();"
+		})
+	</script>
+
 	</body>
 </html>
