@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/chainsorter)](https://npmjs.com/package/chainsorter)
+
 # ChainSorter
 
 _Sort your data in a single line_ &ndash; or more, if you like.
@@ -8,17 +10,18 @@ I got tired of writing `sort()` compare functions, so I made this general purpos
 
 The actual sort won't take place until you call `sort()`, which will return the data for immediate use.
 
+Check out the demo to get a feel for if **ChainSorter** is right for you: [altef.github.io/chainsorter](https://altef.github.io/chainsorter/).
 
 ### Getting started
 
-Download the script or, eventually, `npm install chainsorter`.
+Download the script or, `npm install chainsorter`.
 
 Include it with whichever method is appropriate:
 ```html
 <script src="chainsorter.js"></script>
 ```
 ```js 
-const {ChainSorter} = require('../chainsorter.js');
+const {ChainSorter} = require('chainsorter');
 ```
 ```js
 import {ChainSorter} from 'chainsorter';
