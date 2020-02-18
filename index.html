@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ChainSorter demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style.css" />
+		<script src="./chainsorter.js"></script>
+		<script>
+		
+		
+const names = [{
+		"first": "John",
+		"last": "Doe",
+		"id": 0
+	},
+	{
+		"first": "Jane",
+		"last": "Smith",
+		"id": 1
+	},
+	{
+		"first": "John",
+		"last": "Rabble",
+		"id": 2
+	},
+	{
+		"first": "Jack",
+		"last": "Doe",
+		"id": 3
+	}];
+
+
+console.log(ChainSorter(names).desc('first').sort());
+console.log(ChainSorter(names).asc('last', 'first').sort());
+console.log(ChainSorter(names).asc(...['first', 'last']).sort());
+		// NPM IT
+		</script>
+	</head>
+	<body>
+	
+	<h1>ChainSorter Demo</h1>
+	<div class="section">
+	
+	</div>
+	</body>
+</html>
