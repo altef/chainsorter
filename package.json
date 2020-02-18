@@ -1,0 +1,33 @@
+{
+  "name": "chainsorter",
+  "version": "0.1.0",
+  "description": "Sort a list based on properties of its elements or by any arbitrary functions you define.  Chain them together if you like.",
+  "main": "chainsorter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altef/chainsorter.git"
+  },
+  "keywords": [
+    "javascript",
+    "array",
+    "sort",
+    "keys"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Brad Gill",
+    "url": "http://www.bradleygill.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/altef/chainsorter/issues"
+  },
+  "homepage": "https://github.com/altef/chainsorter#readme",
+  "contributers": [],
+  "files": [
+    "chainsorter.js"
+  ]
+}
