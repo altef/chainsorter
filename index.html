@@ -17,23 +17,23 @@
 		<div id="runkit-preamble">
 const {ChainSorter} = require("chainsorter");
 const names = [{
-		"first": "John",
-		"last": "Doe",
+		"first": "Carl",
+		"last": "Archer",
 		"id": 0
 	},
 	{
-		"first": "Jane",
-		"last": "Smith",
+		"first": "Burt",
+		"last": "Birch",
 		"id": 1
 	},
 	{
-		"first": "John",
-		"last": "Rabble",
+		"first": "Carl",
+		"last": "Cross",
 		"id": 2
 	},
 	{
-		"first": "Jack",
-		"last": "Doe",
+		"first": "Albert",
+		"last": "Archer",
 		"id": 3
 	}];
 		</div>
@@ -52,15 +52,20 @@ const names = [{
 
 
 	<div class="section">
-	<h2>A custom function &ndash; show <em>John</em>s first.</h2>
+	<h2>A custom function &ndash; show <em>Carl</em>s first.</h2>
 	<div id="runkit-3"></div>
+	</div>
+
+	<div class="section">
+	<h2>You can also pass in your keys as an array.  Plus, if your data is an array of arrays, you use the indices as your keys.</h2>
+	<div id="runkit-4"></div>
 	</div>
 
 	<p>&nbsp;</p>
 
 	<script>
 		var preamblecode = 'const {ChainSorter} = require("chainsorter");\n';
-		preamblecode += 'const names = [{"first":"John","last":"Doe","id":0},{"first":"Jane","last":"Smith","id":1},{"first":"John","last":"Rabble","id":2},{"first":"Jack","last":"Doe","id":3}];\n';
+		preamblecode += 'const names = [{"first": "Carl","last": "Archer","id": 0},{"first": "Burt","last": "Birch","id": 1},{"first": "Carl","last": "Cross","id": 2},{"first": "Albert","last": "Archer","id": 3}]\n';
 
 		var notebook1 = RunKit.createNotebook({
 			element: document.getElementById("runkit-1"),
@@ -77,7 +82,12 @@ const names = [{
 		var notebook3 = RunKit.createNotebook({
 			element: document.getElementById("runkit-3"),
 			'preamble': preamblecode,
-			source: "ChainSorter(names).custom((a,b)=>{\n    const searched = 'John';\n    if (a.first == searched && b.first != searched)\n        return -1;\n    if (a.first != searched && b.first == searched)\n        return 1;\n    return 0;\n}).sort();"
+			source: "ChainSorter(names).custom((a,b)=>{\n    const searched = 'Carl';\n    if (a.first == searched && b.first != searched)\n        return -1;\n    if (a.first != searched && b.first == searched)\n        return 1;\n    return 0;\n}).sort();"
+		})
+		var notebook4 = RunKit.createNotebook({
+			element: document.getElementById("runkit-4"),
+			'preamble': preamblecode,
+			source: "const vals = [['Carl', 'Archer'], ['Burt', 'Birch'], ['Carl', 'Cross'], ['Albert', 'Archer']];\n\nChainSorter(vals).asc([0, 1]).sort();"
 		})
 	</script>
 
