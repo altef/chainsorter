@@ -9,7 +9,10 @@ class Sortable {
 	// Append each value to the definition along with an associated sort code
 	push(code, value) {
 		value.forEach(function(f) {
-			this.definition.push([code, f]);
+			if (Array.isArray(f)) // In case they send in an array accidentally
+				this.push(code, f);
+			else
+				this.definition.push([code, f]);
 		}.bind(this));
 		return this;
 	}
