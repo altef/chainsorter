@@ -58,8 +58,11 @@ const byFirstNameZtoA = ChainSorter(names).desc('first').sort();
 // By last name, and if any last names are equivalent by first name
 const Atoz = ChainSorter(names).asc('last', 'first').sort();
 
-// The same as the last one, but using an array
+// The same as the last one, but using an expanded array
 const same = ChainSorter(names).asc(...['first', 'last']).sort();
+
+// Or you can just pass in the array
+const orUseAnArray = ChainSorter(names).asc(['first', 'last']).sort();
 ```
 
 The result will be sorted in priority of your definition from left to right.  Basically whichever field you pass to **ChainSorter** first will have the highest sort priority.  It will continue on to the next field/rule should that resolve a comparison as equal, and so on.
